@@ -2,10 +2,14 @@ const express = require("express");
 var socket = require("socket.io");
 const app = express();
 
-const server = app.listen(4000, function () {
-  console.log("Server has started running on port 4000");
+const server = app.listen(process.env.PORT, function () {
+  console.log("Server is running at port 4000");
 });
 app.use(express.static(__dirname + "/public"));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
 //Setup socket
 const io = socket(server);

@@ -79,3 +79,8 @@ button:hover {
   cursor: pointer;
   background: #bb596b;
 }
+
+button:disabled {
+  background: rgb(158, 157, 157);
+  cursor: initial;
+}
